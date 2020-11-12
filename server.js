@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -12,6 +13,8 @@ const PORT = 5000;
 
 // use the bodyParser
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 // use the imported route
 app.use('/users', usersRoutes);
